@@ -3,6 +3,7 @@ import React from "react";
 import "./App.css";
 import AddNoteForm from "./components/AddNoteForm";
 import NoteList from "./components/NoteList";
+import { Temp } from "./components/Temp";
 
 
 class App extends React.Component {
@@ -15,7 +16,7 @@ class App extends React.Component {
 
   handleAddNote(newNote) {
     this.setState((state) => {
-      return { notes: [newNote, ...this.state.notes] };
+      return { notes: [...this.state.notes, newNote] };
     });
   }
 
@@ -39,6 +40,7 @@ class App extends React.Component {
             this.handleRemoveNote(dateCreated);
           }}
         />
+        {/* <Temp text={this.state.notes[this.state.notes.length - 1]?.noteText || 'Empty'}/> */}
       </div>
     );
   }
